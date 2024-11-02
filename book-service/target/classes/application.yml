@@ -1,0 +1,15 @@
+server:
+  port: 8201
+spring:
+  application:
+    name: bookservice
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cloud_study?serverTimezone=Asia/Seoul&useSSL=false&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8801/eureka, http://localhost:8802/eureka
