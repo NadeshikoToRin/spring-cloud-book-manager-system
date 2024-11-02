@@ -19,18 +19,19 @@ public class BorrowServiceImpl implements BorrowService {
     @Resource
     private BorrowMapper borrowMapper;
 
+    @Resource
+    private RestTemplate template;
+
     @Override
     public UserBorrowDetail getUserBorrowDetailById(int uid) {
         List<Borrow> borrows = borrowMapper.getBorrowsByUid(uid);
 
-        RestTemplate template = new RestTemplate();
-
-        User user = template.getForObject("http://localhost:8082/user/"+uid, User.class);
+        User user = template.getForObject("http://userservice/user/"+uid, User.class);
 
         List<Book> bookList = borrows
                 .stream()
                 .map(borrow -> template
-                        .getForObject("http://localhost:8080/book/"+borrow.getBid(),Book.class))
+                        .getForObject("http://bookservice/book/"+borrow.getBid(),Book.class))
                 .collect(Collectors.toList());
 
         return new UserBorrowDetail(user,bookList);
