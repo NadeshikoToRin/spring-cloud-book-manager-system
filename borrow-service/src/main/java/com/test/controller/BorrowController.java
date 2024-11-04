@@ -17,14 +17,14 @@ public class BorrowController {
     private BorrowService borrowService;
 
     //指定服务降级方法
-    @HystrixCommand(fallbackMethod = "onError")
+//    @HystrixCommand(fallbackMethod = "onError")
     @RequestMapping("/borrow/{uid}")
     public UserBorrowDetail findUserBorrows(@PathVariable("uid") int uid) {
         return borrowService.getUserBorrowDetailById(uid);
     }
 
     //备选方案，返回空列表
-    UserBorrowDetail onError(int uid) {
-        return new UserBorrowDetail(null, Collections.emptyList());
-    }
+//    UserBorrowDetail onError(int uid) {
+//        return new UserBorrowDetail(null, Collections.emptyList());
+//    }
 }
