@@ -15,6 +15,7 @@
         <module name="eureka-server" />
         <module name="commons" />
         <module name="borrow-service" />
+        <module name="hystrix-dashboard" />
       </profile>
     </annotationProcessing>
   </component>
@@ -24,6 +25,7 @@
       <module name="borrow-service" options="-parameters" />
       <module name="commons" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="hystrix-dashboard" options="-parameters" />
       <module name="spring-cloud-study" options="" />
       <module name="user-service" options="-parameters" />
     </option>
