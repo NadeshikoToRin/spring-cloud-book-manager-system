@@ -38,6 +38,6 @@ public class BorrowServiceImpl implements BorrowService {
                 .map(borrow -> bookClient.findBookById(Math.toIntExact(borrow.getBid())))
                 .collect(Collectors.toList());
 
-        return new UserBorrowDetail(user,bookList);
+        return new UserBorrowDetail(user, bookList);
     }
 }
