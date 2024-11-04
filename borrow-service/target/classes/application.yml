@@ -17,3 +17,10 @@ eureka:
 feign:
   circuitbreaker:
     enabled: true
+
+#HystrixDashBoard
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
